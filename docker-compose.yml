@@ -1,19 +1,22 @@
 version: '3.8'
 services:
-  backend:
+  app:
     build:
-      context: ./BackEnd
+      context: ./src/BackEnd # Establecer el contexto de construcción al directorio del backend
+      dockerfile: Dockerfile # Asegúrate de que el Dockerfile esté en src/BackEnd
     ports:
       - "3000:3000"
+    depends_on:
+      - mongo
     volumes:
-      - ./BackEnd:/usr/src/app
+      - ./src/BackEnd:/usr/src/app # Mapear el código fuente para desarrollo
     environment:
-      - NODE_ENV=development
-
-  frontend:
-    build:
-      context: ./FrontEnd
+      - MONGO_DB_URI=mongodb://mongo:27017/DbConnectedTourism
+  mongo:
+    image: mongo
     ports:
-      - "8080:8080"
+      - "27017:27017"
     volumes:
-      - ./FrontEnd:/app
+      - mongodb_data:/data/db
+volumes:
+  mongodb_data:
