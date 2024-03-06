@@ -70,6 +70,8 @@ Este proyecto utiliza las siguientes tecnologías y librerías:
 
 ## ✅ Exemplos
 ![image](https://github.com/YeffersonSilva/ConnectedTourism/assets/117882117/f67faf40-713b-41ba-ac69-5d83b743c479)
+![image](https://github.com/YeffersonSilva/ConnectedTourism/assets/117882117/7b898c1b-b544-4e1f-a172-434b86704d3f)
+
 
 ## 🛠 Tecnologias Utilizadas
  
