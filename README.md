@@ -1,8 +1,8 @@
 # 🌍 Navi Explore
 Bienvenido a Navi Explore, una aplicación diseñada para enriquecer la experiencia turística en ciudades con alto flujo de visitantes y residentes. Este proyecto ofrece una plataforma móvil y web unificada que consolida información sobre eventos locales, atracciones, alojamiento, transporte y servicios
 
-![image](https://github.com/YeffersonSilva/ConnectedTourism/assets/117882117/95d6df14-6e8e-4803-afcb-463c35c0d6cd)
-![image](https://github.com/YeffersonSilva/ConnectedTourism/assets/117882117/9bb3a552-04d6-4334-b975-a48c66bd95b8)
+![image](https://github.com/YeffersonSilva/ConnectedTourism/assets/117882117/52d07a57-bd8a-4f19-b9e7-7934f43e7da0)
+![image](https://github.com/YeffersonSilva/ConnectedTourism/assets/117882117/ea86d3d4-7a23-4e73-93f1-b01f109d0a84)
 
 
 ## 📍 Índice
