@@ -1,0 +1,10 @@
+# Dockerfile.backend
+FROM node:16
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+ENV MONGO_URL=mongodb://mongo:27017/Dream_Nest
+ENV JWT_SECRET=fe3f81071b49f47ade580aef90dea7f9
+EXPOSE 3001
+CMD ["node", "index.js"]
