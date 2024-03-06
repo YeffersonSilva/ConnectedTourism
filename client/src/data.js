@@ -61,7 +61,7 @@ export const categories = [
     icon: <BiWorld />,
   },
   {
-    img: "assets/01.jpg",
+    img: "assets/evento.jpg",
     label: "Eventos",
     icon: <GiPartyPopper />, 
     description: "Descubre eventos y actividades cerca de ti!",
