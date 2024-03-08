@@ -1,3 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5; /* Un gris claro profesional */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333; /* Un color de texto que proporciona contraste sin ser demasiado duro */
+}
+
+.app-container {
+  min-height: 100vh; /* Asegura que el contenedor llene la altura de la pantalla */
+  background-color: #f5f5f5; /* Un gris claro profesional */
+  padding: 20px; /* Añade un poco de espacio alrededor de tu contenido */
+}
+
 .slide {
   display: flex;
   flex-direction: column;
@@ -14,11 +28,26 @@
 }
 
 h1 {
-  color: #1815e2;
-  margin-bottom: 2px;
+  margin-bottom: 20px;
   text-align: center;
   z-index: 2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  line-height: 1.2;
+  background: -webkit-linear-gradient(45deg, #1815e2, #23a6d5, #23d5ab);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  cursor: pointer; /* Hace que el texto parezca interactivo al pasar el mouse */
 }
+
+h1:hover {
+  transform: scale(1.05) rotate(-2deg);
+  text-shadow: 4px 4px 6px rgba(0,0,0,0.2);
+}
+
 
 #map {
   width: 100%;
