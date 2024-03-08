@@ -8,8 +8,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url("../../public/assets/login.jpg") center;
   background-size: cover;
+  background-position: center;
+  
+  // Asegura que el texto y los elementos de formulario sean legibles
+  // sobre el fondo que podría ser visualmente complejo.
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 
   &_content {
     display: flex;
@@ -17,16 +22,17 @@
     gap: 15px;
     width: 40%;
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); // Fondo semitransparente para mejorar la legibilidad
     border-radius: 20px;
 
     @include lg {
-      width: 60%
+      width: 60%;
     }
 
     @include mm {
-      width: 80%
+      width: 80%;
     }
+  
 
     &_form {
       display: flex;
