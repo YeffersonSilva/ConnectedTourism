@@ -145,12 +145,12 @@ const CreateListing = () => {
       <Navbar />
 
       <div className="create-listing">
-        <h1>Publish Your Place</h1>
+        <h1>Publica tu lugar</h1>
         <form onSubmit={handlePost}>
           <div className="create-listing_step1">
-            <h2>Step 1: Tell us about your place</h2>
+            <h2>Paso 1: Cuéntanos sobre tu lugar</h2>
             <hr />
-            <h3>Which of these categories best describes your place?</h3>
+            <h3>¿Cuál de estas categorías describe mejor tu lugar?</h3>
             <div className="category-list">
               {categories?.map((item, index) => (
                 <div
@@ -183,10 +183,10 @@ const CreateListing = () => {
               ))}
             </div>
 
-            <h3>Where's your place located?</h3>
+            <h3>Donde esta Hubicada tu sitio</h3>
             <div className="full">
               <div className="location">
-                <p>Street Address</p>
+                <p>Calle</p>
                 <input
                   type="text"
                   placeholder="Street Address"
@@ -200,7 +200,7 @@ const CreateListing = () => {
 
             <div className="half">
               <div className="location">
-                <p>Apartment, Suite, etc. (if applicable)</p>
+                <p>Apartamento</p>
                 <input
                   type="text"
                   placeholder="Apt, Suite, etc. (if applicable)"
@@ -211,7 +211,7 @@ const CreateListing = () => {
                 />
               </div>
               <div className="location">
-                <p>City</p>
+                <p>Cuidad</p>
                 <input
                   type="text"
                   placeholder="City"
@@ -225,7 +225,7 @@ const CreateListing = () => {
 
             <div className="half">
               <div className="location">
-                <p>Province</p>
+                <p>Estado</p>
                 <input
                   type="text"
                   placeholder="Province"
@@ -236,7 +236,7 @@ const CreateListing = () => {
                 />
               </div>
               <div className="location">
-                <p>Country</p>
+                <p>Pais</p>
                 <input
                   type="text"
                   placeholder="Country"
@@ -248,10 +248,10 @@ const CreateListing = () => {
               </div>
             </div>
 
-            <h3>Share some basics about your place</h3>
+            <h3>Comparte algunos conceptos básicos sobre tu lugar</h3>
             <div className="basics">
               <div className="basic">
-                <p>Guests</p>
+                <p>Personas</p>
                 <div className="basic_count">
                   <RemoveCircleOutline
                     onClick={() => {
@@ -278,7 +278,7 @@ const CreateListing = () => {
               </div>
 
               <div className="basic">
-                <p>Bedrooms</p>
+                <p></p>
                 <div className="basic_count">
                   <RemoveCircleOutline
                     onClick={() => {
@@ -305,7 +305,7 @@ const CreateListing = () => {
               </div>
 
               <div className="basic">
-                <p>Beds</p>
+                <p></p>
                 <div className="basic_count">
                   <RemoveCircleOutline
                     onClick={() => {
@@ -332,7 +332,7 @@ const CreateListing = () => {
               </div>
 
               <div className="basic">
-                <p>Bathrooms</p>
+                <p></p>
                 <div className="basic_count">
                   <RemoveCircleOutline
                     onClick={() => {
@@ -361,10 +361,10 @@ const CreateListing = () => {
           </div>
 
           <div className="create-listing_step2">
-            <h2>Step 2: Make your place stand out</h2>
+            <h2>Destaques</h2>
             <hr />
 
-            <h3>Tell guests what your place has to offer</h3>
+            <h3>Que tiene tu sitio?</h3>
             <div className="amenities">
               {facilities?.map((item, index) => (
                 <div
@@ -380,7 +380,7 @@ const CreateListing = () => {
               ))}
             </div>
 
-            <h3>Add some photos of your place</h3>
+            <h3>Imagenes Relacionadas</h3>
             <DragDropContext onDragEnd={handleDragPhoto}>
               <Droppable droppableId="photos" direction="horizontal">
                 {(provided) => (
@@ -460,9 +460,9 @@ const CreateListing = () => {
               </Droppable>
             </DragDropContext>
 
-            <h3>What make your place attractive and exciting?</h3>
+            <h3>Qué hace que tu lugar sea atractivo</h3>
             <div className="description">
-              <p>Title</p>
+              <p>Titulo</p>
               <input
                 type="text"
                 placeholder="Title"
@@ -471,7 +471,7 @@ const CreateListing = () => {
                 onChange={handleChangeDescription}
                 required
               />
-              <p>Description</p>
+              <p>Descripcion</p>
               <textarea
                 type="text"
                 placeholder="Description"
@@ -480,7 +480,7 @@ const CreateListing = () => {
                 onChange={handleChangeDescription}
                 required
               />
-              <p>Highlight</p>
+              <p>Detalles</p>
               <input
                 type="text"
                 placeholder="Highlight"
@@ -489,7 +489,7 @@ const CreateListing = () => {
                 onChange={handleChangeDescription}
                 required
               />
-              <p>Highlight details</p>
+              <p>Destaques</p>
               <textarea
                 type="text"
                 placeholder="Highlight details"
@@ -498,7 +498,7 @@ const CreateListing = () => {
                 onChange={handleChangeDescription}
                 required
               />
-              <p>Now, set your PRICE</p>
+              <p>Precio</p>
               <span>$</span>
               <input
                 type="number"
@@ -513,7 +513,7 @@ const CreateListing = () => {
           </div>
 
           <button className="submit_btn" type="submit">
-            CREATE YOUR LISTING
+           Crea tu Sitio
           </button>
         </form>
       </div>

@@ -13,7 +13,24 @@ import {
   GiBookshelf // Asumiendo que este es el icono alternativo correcto
 } from 'react-icons/gi';
 
-
+import {
+  FaInfo, // Para centros o puntos de información turística
+  FaWheelchair, // Para accesibilidad
+  FaMapSigns, // Para señalización y guías
+  FaTree, // Para áreas naturales o jardines
+  FaParking, // Para estacionamiento
+  FaRestroom, // Para servicios sanitarios
+  FaCoffee, // Para cafeterías o lugares de comida
+  FaGift, // Para tiendas de souvenirs
+  FaWifi, // Para WiFi gratuito
+  FaBaby, // Para áreas o servicios para familias con bebés
+  FaCameraRetro, // Para zonas fotogénicas
+  FaBus, // Para información sobre transporte público
+  FaWalking, // Para rutas de senderismo o caminata
+  FaBicycle, // Para puntos de alquiler de bicicletas
+  FaDog, // Para sitios pet-friendly
+  FaLeaf, // Para promover la sostenibilidad y prácticas ecológicas
+} from 'react-icons/fa';
 // Importaciones de 'react-icons/fa'
 import { FaLandmark, FaPaintBrush } from "react-icons/fa";
 
@@ -159,131 +176,95 @@ export const categories = [
 
 export const types = [
   {
-    name: "An entire place",
-    description: "Guests have the whole place to themselves",
+    name: "Lugar",
+    description: "Privado solo con cadastro previo",
     icon: <FaHouseUser />,
   },
   {
-    name: "Room(s)",
+    name: "Sitio",
     description:
-      "Guests have their own room in a house, plus access to shared places",
+      "Al aire libre",
     icon: <BsFillDoorOpenFill />,
   },
   {
-    name: "A Shared Room",
+    name: "Evento",
     description:
-      "Guests sleep in a room or common area that maybe shared with you or others",
+      "Evento Publico a la comunidad",
     icon: <FaPeopleRoof />,
   },
 ];
 
 export const facilities = [
   {
-    name: "Bath tub",
-    icon: <PiBathtubFill />,
+    name: "Puntos históricos",
+    icon: <FaLandmark />,
   },
   {
-    name: "Personal care products",
-    icon: <FaPumpSoap />,
+    name: "Información turística",
+    icon: <FaInfo />,
   },
   {
-    name: "Outdoor shower",
-    icon: <FaShower />,
+    name: "Accesibilidad para discapacitados",
+    icon: <FaWheelchair />,
   },
   {
-    name: "Washer",
-    icon: <BiSolidWasher />,
+    name: "Tours guiados",
+    icon: <FaMapSigns />,
   },
   {
-    name: "Dryer",
-    icon: <BiSolidDryer />,
+    name: "Áreas naturales",
+    icon: <FaTree />,
   },
   {
-    name: "Hangers",
-    icon: <PiCoatHangerFill />,
+    name: "Estacionamiento disponible",
+    icon: <FaParking />,
   },
   {
-    name: "Iron",
-    icon: <TbIroning3 />,
+    name: "Baños",
+    icon: <FaRestroom />,
   },
   {
-    name: "TV",
-    icon: <PiTelevisionFill />,
-  },
-  {
-    name: "Dedicated workspace",
-    icon: <BsPersonWorkspace />
-  },
-  {
-    name: "Air Conditioning",
-    icon: <BsSnow />,
-  },
-  {
-    name: "Heating",
-    icon: <GiHeatHaze />,
-  },
-  {
-    name: "Security cameras",
-    icon: <GiCctvCamera />,
-  },
-  {
-    name: "Fire extinguisher",
-    icon: <FaFireExtinguisher />,
-  },
-  {
-    name: "First Aid",
-    icon: <BiSolidFirstAid />,
-  },
-  {
-    name: "Wifi",
-    icon: <BiWifi />,
-  },
-  {
-    name: "Cooking set",
-    icon: <FaKitchenSet />,
-  },
-  {
-    name: "Refrigerator",
-    icon: <BiSolidFridge />,
-  },
-  {
-    name: "Microwave",
-    icon: <MdMicrowave />,
-  },
-  {
-    name: "Stove",
-    icon: <GiToaster />,
-  },
-  {
-    name: "Barbecue grill",
-    icon: <GiBarbecue />,
-  },
-  {
-    name: "Outdoor dining area",
+    name: "Áreas recreativas",
     icon: <FaUmbrellaBeach />,
   },
   {
-    name: "Private patio or Balcony",
-    icon: <MdBalcony />,
+    name: "Comida y bebidas",
+    icon: <FaCoffee />,
   },
   {
-    name: "Camp fire",
-    icon: <GiCampfire />,
+    name: "Tienda de souvenirs",
+    icon: <FaGift />,
   },
   {
-    name: "Garden",
-    icon: <MdYard />,
+    name: "Wifi gratis",
+    icon: <FaWifi />,
   },
   {
-    name: "Free parking",
-    icon: <AiFillCar />,
+    name: "Servicios para familias",
+    icon: <FaBaby />,
   },
   {
-    name: "Self check-in",
-    icon: <FaKey />
+    name: "Zonas fotogénicas",
+    icon: <FaCameraRetro />,
   },
   {
-    name: " Pet allowed",
-    icon: <MdPets />
-  }
+    name: "Información de transporte público",
+    icon: <FaBus />,
+  },
+  {
+    name: "Rutas de senderismo",
+    icon: <FaWalking />,
+  },
+  {
+    name: "Alquiler de bicicletas",
+    icon: <FaBicycle />,
+  },
+  {
+    name: "Admite mascotas",
+    icon: <FaDog />,
+  },
+  {
+    name: "Prácticas ecológicas",
+    icon: <FaLeaf />,
+  },
 ];
