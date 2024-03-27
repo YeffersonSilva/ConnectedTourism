@@ -181,7 +181,9 @@ const ListingDetails = () => {
 
               <button className="button" type="submit" onClick={handleSubmit}>
                 BOOKING
-              </button>
+                </button>
+                <button className="button" onClick={() => navigate('/Mapadire')}>Ver Mapa</button>
+
             </div>
           </div>
         </div>

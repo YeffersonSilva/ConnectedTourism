@@ -1,0 +1,28 @@
+/* Ajustes para el contenedor principal de la aplicación */
+.app-container {
+    min-height: 100vh; /* Altura mínima para llenar la pantalla */
+    background-color: #f5f5f5; /* Color de fondo */
+    padding: 20px; /* Espacio alrededor del contenido */
+  }
+  
+  /* Ajustes para el contenedor del mapa y el texto */
+  .slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centrar el contenido verticalmente */
+    width: 100%; /* Asume el ancho total disponible */
+    height: 100vh; /* Altura modificada para tomar toda la pantalla */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Ajustes específicos para el mapa */
+  #mapadire {
+    width: 96%; /* Ancho del mapa ajustado al 96% de la anchura disponible */
+    height: 100%; /* Altura ajustada para ocupar el 96% de la altura de la pantalla */
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin: 20px auto; /* Centrar el mapa horizontalmente y añadir algo de margen */
+  }
+  
