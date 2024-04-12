@@ -7,9 +7,7 @@ const Categories = () => {
     <div className="categories">
       <h1>Explora las Categorías Destacadas</h1>
       <p>
-        Descubre una amplia variedad de opciones que se adaptan a todos los tipos de viajeros.
-        rgete en la cultura local, disfruta de las comodidades del hogar y crea recuerdos
-        inolvidables en tu destino soñado.
+        
       </p>
 
       <div className="categories_list">

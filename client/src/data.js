@@ -159,19 +159,7 @@ export const categories = [
     label: "Espectáculos Teatrales",
     icon: <GiTheater />,
     description: "Disfruta de obras de teatro y espectáculos en vivo.",
-  },
-  {
-    img: "assets/public_speaking.jpg",
-    label: "Charlas y Conferencias",
-    icon: <MdEvent />,
-    description: "Asiste a charlas educativas y conferencias sobre diversos temas.",
-  },
-  {
-    img: "assets/urban_parks.jpg",
-    label: "Parques Urbanos",
-    icon: <GiParkBench />,
-    description: "Relájate y disfruta de los espacios verdes en la ciudad.",
-  },
+  }
 ];
 
 export const types = [
