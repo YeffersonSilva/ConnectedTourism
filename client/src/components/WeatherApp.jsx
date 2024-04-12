@@ -11,13 +11,12 @@ const WeatherApp = () => {
   const { theme } = useTheme(); // Usa useTheme para obtener el tema actual
 
   const fetchWeatherData = async (lat, lon) => {
-    const apiKey = "2a35acb2228e90cfa2390f24e2633667"; // Asegúrate de que es correcta y está actualizada
+    const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY; // Utiliza la variable de entorno para la API key
     let apiWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}&lang=pt_br`;
 
     if (city) {
       apiWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`;
     }
-
     try {
       setLoading(true);
       const response = await fetch(apiWeatherURL);
