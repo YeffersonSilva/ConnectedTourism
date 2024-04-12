@@ -1,0 +1,72 @@
+/* Ajustes generales del contenedor de la aplicación */
+#weatherAppContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;  /* Usa toda la altura de la ventana */
+  width: 100vw;  /* Asegura que el contenedor utilice todo el ancho de la ventana */
+  margin: 0;  /* Elimina cualquier margen externo */
+  padding: 0;  /* Elimina cualquier padding externo */
+  align-items: center; /* Asegura que todo el contenido esté centrado horizontalmente */
+}
+
+/* Ajustes específicos para el mapa para que ocupe el 90% */
+#weatherAppContainer #mapbox {
+  flex: 9;  /* Permite que el mapa crezca y ocupe el 90% del espacio disponible */
+  width: 100%;  /* Establece que el mapa utilice el 100% del ancho */
+  height: 50%;  /* Ajuste para que el mapa utilice el 90% de la altura de su contenedor */
+  margin: 0;  /* No hay margen */
+  padding: 0;  /* No hay padding */
+  box-shadow: none;  /* Elimina sombras para evitar bordes visuales */
+}
+
+/* Ajuste explícito del iframe dentro del mapa */
+#weatherAppContainer #mapbox iframe {
+  width: 100%;  /* Asegura que el iframe ocupe todo el ancho del contenedor #mapbox */
+  height: 100%;  /* Asegura que el iframe ocupe toda la altura del contenedor #mapbox */
+  border: none;  /* Elimina cualquier borde del iframe */
+}
+
+/* Ajustes para la caja de texto con un diseño minimalista y refinado */
+#weatherAppContainer .form {
+  flex: 1;  /* Uso eficiente del espacio asignado */
+  width: 60%;  /* Ancho ajustado para mejor presentación */
+  max-width: 500px;  /* Límite de ancho para pantallas grandes */
+  padding: 10px 20px;  /* Padding interno para comodidad visual */
+  box-sizing: border-box;  /* Asegura que el padding esté incluido en el ancho */
+  display: flex;
+  flex-direction: row;  /* Elementos en línea para un diseño compacto */
+  justify-content: center;  /* Centrado horizontal */
+  align-items: center;  /* Centrado vertical */
+  background: #f0f0f0;  /* Fondo sutil para el formulario */
+  border-radius: 20px;  /* Bordes muy redondeados para suavidad */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);  /* Sombra ligera para profundidad sutil */
+}
+
+#weatherAppContainer .form input {
+  flex-grow: 1;  /* Permite que el input expanda para llenar el espacio */
+  border: none;  /* Sin bordes para un look limpio */
+  background: transparent;  /* Fondo transparente para integración con el formulario */
+  margin-right: 10px;  /* Margen entre input y botón */
+  padding: 8px;  /* Padding cómodo para la escritura */
+  font-size: 16px;  /* Tamaño de letra legible */
+  color: #333;  /* Color de texto oscuro para contraste suave */
+  border-radius: 15px;  /* Bordes redondeados */
+}
+
+#weatherAppContainer .form input:focus {
+  outline: none;  /* Remover el contorno al enfocar para mantener el diseño limpio */
+}
+
+#weatherAppContainer .form button {
+  padding: 8px 16px;  /* Padding cómodo para el botón */
+  background-color: #5c6bc0;  /* Color de fondo del botón para un contraste elegante */
+  color: white;  /* Color de texto blanco para legibilidad */
+  border: none;  /* Sin bordes para mantener el diseño limpio */
+  border-radius: 15px;  /* Bordes redondeados */
+  cursor: pointer;  /* Indica que es interactivo */
+  transition: background-color 0.3s;  /* Transición suave para interacción */
+}
+
+#weatherAppContainer .form button:hover {
+  background-color: #3949ab;  /* Oscurecer el botón al pasar el ratón para interactividad */
+}
