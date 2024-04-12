@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Usuarios</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Administrador de Usuarios</h1>
+    <h2>Lista de Usuarios</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="userList">
+            <!-- Los usuarios se cargarán aquí -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUsers();
+        });
+
+        function loadUsers() {
+            fetch('/models/Users')
+            .then(response => response.json())
+            .then(users => {
+                const userList = document.getElementById('userList');
+                userList.innerHTML = ''; // Limpiar la lista existente
+                users.forEach(user => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${user._id}</td>
+                        <td>${user.firstName}</td>
+                        <td>${user.lastName}</td>
+                        <td>${user.email}</td>
+                        <td>
+                            <button onclick="deleteUser('${user._id}')">Eliminar</button>
+                        </td>
+                    `;
+                    userList.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al cargar los usuarios');
+            });
+        }
+
+        function deleteUser(userId) {
+            fetch(`/api/users/${userId}`, { method: 'DELETE' })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Usuario eliminado:', result);
+                loadUsers(); // Recargar la lista de usuarios
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al eliminar el usuario');
+            });
+        }
+    </script>
+</body>
+</html>

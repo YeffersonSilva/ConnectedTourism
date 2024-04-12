@@ -115,3 +115,29 @@
     }
   }
 }
+// En Navbar.scss
+.navbar {
+  &.light {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  &.dark {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .navbar_search input {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  .navbar_right_account {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  .navbar_right_accountmenu a {
+    color: inherit;  // Asegura que los links hereden el color adecuado del tema
+  }
+}

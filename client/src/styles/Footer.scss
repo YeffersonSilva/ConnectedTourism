@@ -90,4 +90,43 @@
       display: none;
     }
   }
+}.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+
+  &.light {
+    background-color: #f0f0f0; // Fondo claro para el tema claro
+    color: #333; // Texto oscuro para mejor contraste
+  }
+
+  &.dark {
+    background-color: #2c2c2c; // Fondo oscuro para el tema oscuro
+    color: #fff; // Texto claro para mejor visibilidad
+  }
+
+  .footer_left,
+  .footer_center,
+  .footer_right {
+    flex: 1;
+  }
+
+  .footer_center ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      padding: 5px 0;
+    }
+  }
+
+  .footer_right_info {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
 }

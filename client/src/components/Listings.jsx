@@ -5,14 +5,14 @@ import ListingCard from "./ListingCard";
 import Loader from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setListings } from "../redux/state";
+import { useTheme } from '../contexts/ThemeContext'; // Asegura que useTheme esté importado
 
 const Listings = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-
   const [selectedCategory, setSelectedCategory] = useState("All");
-
   const listings = useSelector((state) => state.listings);
+  const { theme } = useTheme(); // Usar useTheme para obtener el tema actual
 
   const getFeedListings = async () => {
     try {
@@ -38,11 +38,11 @@ const Listings = () => {
   }, [selectedCategory]);
 
   return (
-    <>
+    <div className={`listings ${theme}`}>
       <div className="category-list">
         {categories?.map((category, index) => (
           <div
-            className={`category ${category.label === selectedCategory ? "selected" : ""}`}
+            className={`category ${category.label === selectedCategory ? "selected" : ""} ${theme}`}
             key={index}
             onClick={() => setSelectedCategory(category.label)}
           >
@@ -51,41 +51,39 @@ const Listings = () => {
           </div>
         ))}
       </div>
-
       {loading ? (
         <Loader />
       ) : (
-        <div className="listings">
-          {listings.map(
-            ({
-              _id,
-              creator,
-              listingPhotoPaths,
-              city,
-              province,
-              country,
-              category,
-              type,
-              price,
-              booking=false
-            }) => (
-              <ListingCard
-                listingId={_id}
-                creator={creator}
-                listingPhotoPaths={listingPhotoPaths}
-                city={city}
-                province={province}
-                country={country}
-                category={category}
-                type={type}
-                price={price}
-                booking={booking}
-              />
-            )
-          )}
-        </div>
+        listings.map(
+          ({
+            _id,
+            creator,
+            listingPhotoPaths,
+            city,
+            province,
+            country,
+            category,
+            type,
+            price,
+            booking=false
+          }) => (
+            <ListingCard
+              key={_id}
+              listingId={_id}
+              creator={creator}
+              listingPhotoPaths={listingPhotoPaths}
+              city={city}
+              province={province}
+              country={country}
+              category={category}
+              type={type}
+              price={price}
+              booking={booking}
+            />
+          )
+        )
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,20 @@
+// Estilos globales que dependen del tema
+.light {
+  background-color:steelblue;
+  color: #000;
+  
+  input, button, a {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+.dark {
+  background-color:aqua;
+  color:#000;
+  
+  input, button, a {
+    background-color: inherit;
+    color: inherit;
+  }
+}

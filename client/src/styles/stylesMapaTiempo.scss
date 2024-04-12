@@ -37,7 +37,7 @@
   flex-direction: row;  /* Elementos en línea para un diseño compacto */
   justify-content: center;  /* Centrado horizontal */
   align-items: center;  /* Centrado vertical */
-  background: #f0f0f0;  /* Fondo sutil para el formulario */
+ // background: #f0f0f0;  /* Fondo sutil para el formulario */
   border-radius: 20px;  /* Bordes muy redondeados para suavidad */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);  /* Sombra ligera para profundidad sutil */
 }
@@ -69,4 +69,26 @@
 
 #weatherAppContainer .form button:hover {
   background-color: #3949ab;  /* Oscurecer el botón al pasar el ratón para interactividad */
+}
+.container {
+  &.light {
+    background-color: #f0f0f0; // Fondo claro para el tema claro
+    color: #333; // Texto oscuro para mejor contraste
+  }
+
+  &.dark {
+    background-color: #2c2c2c; // Fondo oscuro para el tema oscuro
+    color: #fff; // Texto claro para mejor visibilidad
+  }
+
+  .form-input-container input,
+  .form-input-container button {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  #mapbox .iframe-border {
+    border: 1px solid; // Ajusta según necesidad
+    border-color: inherit; // Hereda el color de borde según el tema
+  }
 }

@@ -1,8 +1,13 @@
-import "../styles/Footer.scss"
-import { LocationOn, LocalPhone, Email } from "@mui/icons-material"
+import React from 'react';
+import "../styles/Footer.scss";
+import { useTheme } from '../contexts/ThemeContext'; // Importa useTheme
+import { LocationOn, LocalPhone, Email } from "@mui/icons-material";
+
 const Footer = () => {
+  const { theme } = useTheme(); // Usar useTheme para obtener el tema actual
+
   return (
-    <div className="footer">
+    <div className={`footer ${theme}`}>  {/* Agregar clase dinámica basada en el tema */}
       <div className="footer_left">
         <a href="/"><img src="/assets/logo01.png" alt="logo" /></a>
       </div>
@@ -29,7 +34,7 @@ const Footer = () => {
         <img src="/assets/payment.png" alt="payment" />
       </div>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

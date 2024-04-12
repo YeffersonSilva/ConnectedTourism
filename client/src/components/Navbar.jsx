@@ -1,26 +1,26 @@
 import { IconButton } from "@mui/material";
-import { Search, Person, Menu } from "@mui/icons-material";
+import { Search, Person, Menu, Brightness4, Brightness7 } from "@mui/icons-material";
 import variables from "../styles/variables.scss";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/Navbar.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { setLogout } from "../redux/state";
-
+import { useTheme } from '../contexts/ThemeContext'; // Asegura que useTheme esté importado
 
 const Navbar = () => {
   const [dropdownMenu, setDropdownMenu] = useState(false);
-
-  const user = useSelector((state) => state.user);
-
+  const user = useSelector(state => state.user);
   const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme(); // Usar useTheme para el cambio de tema
 
-  const [search, setSearch] = useState("")
-
-  const navigate = useNavigate()
+  const iconColor = theme === 'dark' ? '#fff' : variables.darkgrey; // Define colores dinámicos basados en el tema
+  const searchIconColor = theme === 'dark' ? '#fff' : variables.pinkred;
 
   return (
-    <div className="navbar">
+    <div className={`navbar ${theme}`}>  {/* Agregar clase dinámica basada en el tema */}
       <a href="/">
         <img src="/assets/logo01.png" alt="logo" />
       </a>
@@ -32,15 +32,16 @@ const Navbar = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <IconButton disabled={search === ""}>
-          <Search
-            sx={{ color: variables.pinkred }}
-            onClick={() => {navigate(`/properties/search/${search}`)}}
-          />
+        <IconButton disabled={search === ""} onClick={() => navigate(`/properties/search/${search}`)}>
+          <Search sx={{ color: searchIconColor }} />
         </IconButton>
       </div>
 
       <div className="navbar_right">
+        <IconButton onClick={toggleTheme} sx={{ color: iconColor }}>
+          {theme === 'dark' ? <Brightness7 /> : <Brightness4 />}
+        </IconButton>
+
         {user ? (
           <a href="/create-listing" className="host">
             Conviértete en un Hos
@@ -55,9 +56,9 @@ const Navbar = () => {
           className="navbar_right_account"
           onClick={() => setDropdownMenu(!dropdownMenu)}
         >
-          <Menu sx={{ color: variables.darkgrey }} />
+          <Menu sx={{ color: iconColor }} />
           {!user ? (
-            <Person sx={{ color: variables.darkgrey }} />
+            <Person sx={{ color: iconColor }} />
           ) : (
             <img
               src={`http://localhost:3001/${user.profileImagePath.replace(

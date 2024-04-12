@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/stylesMapaTiempo.scss';
+import '../styles/stylesMapaTiempo.scss'; // Asegúrate de que este es el archivo correcto
+import { useTheme } from '../contexts/ThemeContext'; // Importa useTheme
 
 const WeatherApp = () => {
   const [city, setCity] = useState('');
@@ -7,6 +8,7 @@ const WeatherApp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [mapUrl, setMapUrl] = useState('');
+  const { theme } = useTheme(); // Usa useTheme para obtener el tema actual
 
   const fetchWeatherData = async (lat, lon) => {
     const apiKey = "2a35acb2228e90cfa2390f24e2633667"; // Asegúrate de que es correcta y está actualizada
@@ -20,11 +22,11 @@ const WeatherApp = () => {
       setLoading(true);
       const response = await fetch(apiWeatherURL);
       if (!response.ok) {
-        throw new Error('Erro ao obter os dados do clima');
+        throw new Error('Error al obtener los datos del clima');
       }
       const data = await response.json();
       setWeatherData(data);
-      setMapUrl(`https://maps.google.com/maps?q=${data.coord.lat},${data.coord.lon}&hl=pt-br&z=14&output=embed`);
+      setMapUrl(`https://maps.google.com/maps?q=${data.coord.lat},${data.coord.lon}&hl=es&z=14&output=embed`);
       setError('');
     } catch (error) {
       setError(error.message);
@@ -46,32 +48,25 @@ const WeatherApp = () => {
     }
   }, []);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    fetchWeatherData(null, null);
-  };
-
   return (
-    <div id="weatherAppContainer" className="container">
+    <div id="weatherAppContainer" className={`container ${theme}`}> {/* Agregar clase dinámica basada en el tema */}
       <div className="form">
-        <h3>Confira Sitios en tu ciudad:</h3>
+        <h3>Confira su ciudad:</h3>
         <div className="form-input-container">
           <input
             type="text"
-            placeholder="Digite o nome da cidade"
+            placeholder="Nombre de la ciudad"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && fetchWeatherData(null, null)}
           />
-          <button onClick={handleSearch}>
-            <i className="fa-solid fa-magnifying-glass"></i>
+          <button onClick={() => fetchWeatherData(null, null)}>
+            Buscar
           </button>
         </div>
       </div>
-     
-      {/* El mapa siempre está visible */}
       <div id="mapbox">
-        <iframe className="iframe-border" width="350" height="250" frameBorder="1" scrolling="no" marginHeight="0" marginWidth="0" src={mapUrl}></iframe>
+        <iframe className="iframe-border" width="350" height="250" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src={mapUrl}></iframe>
       </div>
     </div>
   );

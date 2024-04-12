@@ -82,3 +82,19 @@
     }
   }
 }
+// En Categories.scss
+.categories {
+  &.light {
+    background-color: #f9f9f9; // Un fondo más claro para el tema claro
+    color: #333; // Texto más oscuro para el tema claro
+
+    
+  }
+
+  &.dark {
+    background-color: #2c2c2c; // Un fondo más oscuro para el tema oscuro
+    color: #ccc; // Texto más claro para el tema oscuro
+
+  
+  }
+}
