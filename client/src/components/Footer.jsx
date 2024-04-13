@@ -13,25 +13,23 @@ const Footer = () => {
       </div>
 
       <div className="footer_center">
-        <h3>Useful Links</h3>
-        <ul>
-          <li>About Us</li>
-          <li>Terms and Conditions</li>
-          <li>Return and Refund Policy</li>
-        </ul>
+      
       </div>
 
       <div className="footer_right">
         <h3>Contact</h3>
         <div className="footer_right_info">
-          <LocalPhone />
-          <p>+1 23456</p>
-        </div>
+    <a href="https://t.me/NaviExplore_bot" target="_blank">
+        <LocalPhone />
+        <p>Chat de ayuda al Usuario</p>
+    </a>
+</div>
+
         <div className="footer_right_info">
           <Email />
           <p>yefferson@gmail.com</p>
         </div>
-        <img src="/assets/payment.png" alt="payment" />
+       
       </div>
     </div>
   );

@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import "../styles/ListingDetails.scss";
-import { useNavigate, useParams } from "react-router-dom";
-import { facilities } from "../data";
-
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
-import { DateRange } from "react-date-range";
-import Loader from "../components/Loader";
-import Navbar from "../components/Navbar";
-import { useSelector } from "react-redux";
-import Footer from "../components/Footer"
+import React, { useState, useEffect } from 'react';
+import '../styles/ListingDetails.scss';
+import { useNavigate, useParams } from 'react-router-dom';
+import { facilities } from '../data';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
+import { DateRange } from 'react-date-range';
+import Loader from '../components/Loader';
+import Navbar from '../components/Navbar';
+import { useSelector } from 'react-redux';
+import Footer from '../components/Footer';
+import WeatherProperty from '../components/WeatherProperty'; // Importa WeatherProperty
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -19,18 +19,15 @@ const ListingDetails = () => {
 
   const getListingDetails = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3001/properties/${listingId}`,
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch(`http://localhost:3001/properties/${listingId}`, {
+        method: 'GET',
+      });
 
       const data = await response.json();
       setListing(data);
       setLoading(false);
     } catch (err) {
-      console.log("Fetch Listing Details Failed", err.message);
+      console.log('Fetch Listing Details Failed', err.message);
     }
   };
 
@@ -38,15 +35,14 @@ const ListingDetails = () => {
     getListingDetails();
   }, []);
 
-  console.log(listing)
-
+  console.log(listing);
 
   /* BOOKING CALENDAR */
   const [dateRange, setDateRange] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
-      key: "selection",
+      key: 'selection',
     },
   ]);
 
@@ -60,9 +56,9 @@ const ListingDetails = () => {
   const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
 
   /* SUBMIT BOOKING */
-  const customerId = useSelector((state) => state?.user?._id)
+  const customerId = useSelector((state) => state?.user?._id);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
@@ -73,30 +69,30 @@ const ListingDetails = () => {
         startDate: dateRange[0].startDate.toDateString(),
         endDate: dateRange[0].endDate.toDateString(),
         totalPrice: listing.price * dayCount,
-      }
+      };
 
-      const response = await fetch("http://localhost:3001/bookings/create", {
-        method: "POST",
+      const response = await fetch('http://localhost:3001/bookings/create', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(bookingForm)
-      })
+        body: JSON.stringify(bookingForm),
+      });
 
       if (response.ok) {
-        navigate(`/${customerId}/trips`)
+        navigate(`/${customerId}/trips`);
       }
     } catch (err) {
-      console.log("Submit Booking Failed.", err.message)
+      console.log('Submit Booking Failed.', err.message);
     }
-  }
+  };
 
   return loading ? (
     <Loader />
   ) : (
     <>
       <Navbar />
-      
+
       <div className="listing-details">
         <div className="title">
           <h1>{listing.title}</h1>
@@ -105,30 +101,21 @@ const ListingDetails = () => {
 
         <div className="photos">
           {listing.listingPhotoPaths?.map((item) => (
-            <img
-              src={`http://localhost:3001/${item.replace("public", "")}`}
-              alt="listing photo"
-            />
+            <img src={`http://localhost:3001/${item.replace('public', '')}`} alt="listing photo" />
           ))}
         </div>
 
         <h2>
-          {listing.type} in {listing.city}, {listing.province},{" "}
-          {listing.country}
+          {listing.type} in {listing.city}, {listing.province}, {listing.country}
         </h2>
         <p>
-          {listing.guestCount} guests - {listing.bedroomCount} bedroom(s) -{" "}
-          {listing.bedCount} bed(s) - {listing.bathroomCount} bathroom(s)
+          {listing.guestCount} guests - {listing.bedroomCount} bedroom(s) - {listing.bedCount} bed(s) -{' '}
+          {listing.bathroomCount} bathroom(s)
         </p>
         <hr />
 
         <div className="profile">
-          <img
-            src={`http://localhost:3001/${listing.creator.profileImagePath.replace(
-              "public",
-              ""
-            )}`}
-          />
+          <img src={`http://localhost:3001/${listing.creator.profileImagePath.replace('public', '')}`} />
           <h3>
             Hosted by {listing.creator.firstName} {listing.creator.lastName}
           </h3>
@@ -147,13 +134,10 @@ const ListingDetails = () => {
           <div>
             <h2>What this place offers?</h2>
             <div className="amenities">
-              {listing.amenities[0].split(",").map((item, index) => (
+              {listing.amenities[0].split(',').map((item, index) => (
                 <div className="facility" key={index}>
                   <div className="facility_icon">
-                    {
-                      facilities.find((facility) => facility.name === item)
-                        ?.icon
-                    }
+                    {facilities.find((facility) => facility.name === item)?.icon}
                   </div>
                   <p>{item}</p>
                 </div>
@@ -181,15 +165,16 @@ const ListingDetails = () => {
 
               <button className="button" type="submit" onClick={handleSubmit}>
                 BOOKING
-                </button>
-                <button className="button" onClick={() => navigate('/Mapadire')}>Ver Mapa</button>
-
+              </button>
+             
             </div>
           </div>
         </div>
       </div>
 
-      <Footer />
+
+      {/* Agrega WeatherProperty aquí */}
+      <WeatherProperty city={`${listing.city},${listing.province},${listing.country}`} />
     </>
   );
 };

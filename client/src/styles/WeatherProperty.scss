@@ -1,0 +1,129 @@
+
+ 
+  .weather-property-container {
+    width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible */
+    height: 100vh; /* Establece la altura del contenedor al 75% del alto de la ventana */
+  }
+  
+  .iframe-border {
+    width: 800px; /* Ajusta el ancho del iframe al 100% del contenedor */
+    height: 800px; /* Ajusta el largo del iframe al 100% del contenedor */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  .weather-property-container h2,
+  .weather-property-container p {
+    text-align: center; /* Centrar texto */
+  }
+  .weather-property-container {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .weather-property-container h2,
+  .weather-property-container p {
+    text-align: center;
+  }
+  
+  .iframe-border {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .weather-property-container h2 img {
+    width: 10%;
+    margin-bottom: 10px; /* Agrega un espacio de 10px entre la bandera y el texto */
+  }
+  .weather-property-container {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .weather-property-container h2,
+  .weather-property-container p {
+    text-align: center;
+  }
+  
+  .iframe-border {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .weather-property-container h2 img,
+  .weather-property-container .weather-icon {
+    width: 10%;
+    margin-bottom: 10px;
+  }
+  /* Agrega estos estilos al archivo WeatherProperty.scss */
+
+/* Iconos */
+.weather-property-container .details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .weather-property-container .details-container p {
+    margin: 0 10px;
+  }
+  
+  .weather-property-container .details-container i {
+    margin-right: 5px;
+  }
+  /* Estilo para los iconos */
+/* Estilo para los iconos del clima */
+/* Estilo para los iconos del clima */
+.weather-info {
+  display: flex; /* Utiliza flexbox para alinear verticalmente los iconos y el texto */
+  align-items: center; /* Alinea verticalmente los elementos */
+  background-color:#ccc; /* Color de fondo gris fuerte */
+  padding: 1rem; /* Añade espaciado interno al contenedor */
+  border-radius: 8px; /* Añade bordes redondeados al contenedor */
+}
+
+.weather-icon {
+  font-size: 1.5rem; /* Tamaño del icono */
+  margin-right: 0.5rem; /* Espacio entre el icono y el texto */
+  color: #fff; /* Color de los iconos (blanco) */
+}
+
+.weather-text {
+  color: #fff; /* Color del texto (blanco) */
+}
+.details-container {
+    display: flex; /* Utiliza flexbox para alinear horizontalmente los elementos */
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    align-items: center; /* Alinea verticalmente los elementos */
+    background-color:#ccc; /* Color de fondo gris fuerte */
+    padding: 1rem; /* Añade espaciado interno al contenedor */
+    border-radius: 8px; /* Añade bordes redondeados al contenedor */
+  }
+  
+  .weather-icon {
+    font-size: 1.5rem; /* Tamaño del icono */
+    margin-right: 0.5rem; /* Espacio entre el icono y el texto */
+    color: #fff; /* Color de los iconos (blanco) */
+  }
+  
+  .weather-text {
+    color: #fff; /* Color del texto (blanco) */
+  }
+  

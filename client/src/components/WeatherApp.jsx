@@ -50,7 +50,7 @@ const WeatherApp = () => {
   return (
     <div id="weatherAppContainer" className={`container ${theme}`}> {/* Agregar clase dinámica basada en el tema */}
       <div className="form">
-        <h3>Confira su ciudad:</h3>
+        <h3>Ciudad:</h3>
         <div className="form-input-container">
           <input
             type="text"
