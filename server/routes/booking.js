@@ -13,6 +13,70 @@ const Booking = require("../models/Booking");
  * @param {Express.Response} res - El objeto de respuesta HTTP para enviar de vuelta al cliente.
  * @access Public
  */
+
+/**
+ * @openapi
+ * /create:
+ *   post:
+ *     tags:
+ *       - Booking
+ *     summary: Create a new booking
+ *     description: This endpoint creates a new booking in the database with the details provided by the client.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - customerId
+ *               - hostId
+ *               - listingId
+ *               - startDate
+ *               - endDate
+ *               - totalPrice
+ *             properties:
+ *               customerId:
+ *                 type: string
+ *                 description: The ID of the customer making the booking.
+ *               hostId:
+ *                 type: string
+ *                 description: The ID of the host of the listing.
+ *               listingId:
+ *                 type: string
+ *                 description: The ID of the listing being booked.
+ *               startDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Start date of the booking.
+ *               endDate:
+ *                 type: string
+ *                 format: date
+ *                 description: End date of the booking.
+ *               totalPrice:
+ *                 type: number
+ *                 format: float
+ *                 description: Total price of the booking.
+ *     responses:
+ *       200:
+ *         description: Booking created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Booking'
+ *       400:
+ *         description: Error in creating the booking
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 error:
+ *                   type: string
+ */
+
 router.post("/create", async (req, res) => {
   try {
     // Extracción de los datos necesarios del cuerpo de la solicitud

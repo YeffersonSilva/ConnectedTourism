@@ -31,6 +31,34 @@ const upload = multer({ storage });
  * @param {Express.Response} res - El objeto de respuesta HTTP para enviar de vuelta al cliente.
  * @access Public
  */
+/**
+ * @openapi
+ * /auth/register:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     summary: Register a new user
+ *     description: This endpoint registers a new user.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - username
+ *               - password
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User registered successfully
+ *       400:
+ *         description: Invalid input
+ */
 router.post("/register", upload.single("profileImage"), async (req, res) => {
   try {
     // Toma toda la información del formulario
@@ -87,6 +115,34 @@ router.post("/register", upload.single("profileImage"), async (req, res) => {
  * @param {Express.Request} req - El objeto de solicitud HTTP, que incluye el cuerpo con el email y contraseña.
  * @param {Express.Response} res - El objeto de respuesta HTTP para enviar de vuelta al cliente.
  * @access Public
+ */
+/**
+ * @openapi
+ * /auth/login:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     summary: Login a user
+ *     description: This endpoint authenticates a user.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - username
+ *               - password
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User logged in successfully
+ *       401:
+ *         description: Unauthorized
  */
 router.post("/login", async (req, res) => {
   try {

@@ -13,6 +13,43 @@ const Listing = require("../models/Listing");
  * @param {Express.Response} res - Objeto de respuesta HTTP para enviar de vuelta al cliente.
  * @access Public
  */
+
+/**
+ * @openapi
+ * /users/{userId}/trips:
+ *   get:
+ *     tags:
+ *       - Visited
+ *     summary: Retrieve all trips made by a user
+ *     description: Fetches a list of all bookings (trips) made by the specified user. Each booking includes details about the customer, host, and listing associated with the booking.
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the user whose trips are being retrieved.
+ *     responses:
+ *       202:
+ *         description: A list of trips made by the user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Booking'
+ *       404:
+ *         description: No trips found for the user or an error occurred while fetching the trips.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 error:
+ *                   type: string
+ */
 router.get("/:userId/trips", async (req, res) => {
   try {
     const { userId } = req.params;
@@ -108,6 +145,42 @@ router.get("/:userId/properties", async (req, res) => {
  * @param {Express.Request} req - Objeto de solicitud HTTP, incluye el ID del usuario en los parámetros de la ruta.
  * @param {Express.Response} res - Objeto de respuesta HTTP para enviar de vuelta al cliente.
  * @access Public
+ */
+/**
+ * @openapi
+ * /users/{userId}/reservations:
+ *   get:
+ *     tags:
+ *       - Reservations
+ *     summary: Retrieve all reservations for a user as a host
+ *     description: This endpoint retrieves all reservations where the specified user acts as the host.
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the user/host whose reservations are being retrieved.
+ *     responses:
+ *       202:
+ *         description: A list of reservations for the host
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Reservation'
+ *       404:
+ *         description: Reservations not found or error in fetching reservations.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 error:
+ *                   type: string
  */
 router.get("/:userId/reservations", async (req, res) => {
   try {
