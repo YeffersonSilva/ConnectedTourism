@@ -31,10 +31,9 @@ const Footer = () => {
 
 
 <div className="footer_right_info">
-          <LocalPhone />
-          
-          <a href="https://t.me/NaviExplore_bot" target="_blank">Contacto Telegram</a>
-        </div>
+    <img src="/telegram.png" alt="Telegram Icon" style={{ width: '24px', height: '24px', marginRight: '5px' }} />
+    <a href="https://t.me/NaviExplore_bot" target="_blank">Contacto Telegram</a>
+</div>
 
         {isChatOpen && <Contenido />} {/* Muestra el chatbot cuando se activa */}
       </div>

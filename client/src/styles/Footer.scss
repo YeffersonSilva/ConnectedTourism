@@ -140,3 +140,58 @@
   border-radius: 50%;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1); // Opcional, para darle un poco de sombra
 }
+// Modo Claro y Oscuro para el footer
+.footer {
+  &.light {
+    background-color: #f5f8fb; // Fondo claro
+    color: #333; // Texto oscuro para modo claro
+  }
+
+  &.dark {
+    background-color: #333; // Fondo oscuro
+    color: #fff; // Texto claro para modo oscuro
+  }
+
+  .footer_right {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      color: inherit; // Hereda el color del texto basado en el tema
+    }
+
+    &_info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: inherit; // Hereda el fondo basado en el tema
+
+      &:hover {
+        background-color: #e1f5fe; // Solo se resalta en modo claro
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      p {
+        margin: 0;
+        color: inherit; // Hereda el color del texto basado en el tema
+      }
+
+      a {
+        color: #007bff; // Color azul para el enlace en ambos temas
+        text-decoration: none; // Sin subrayado
+
+        &:hover {
+          text-decoration: underline; // Subrayado al pasar el ratón
+        }
+      }
+    }
+  }
+}
