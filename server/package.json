@@ -10,7 +10,9 @@
     "mongoose": "^8.0.1",
     "multer": "^1.4.4",
     "multer-gridfs-storage": "^5.0.2",
-    "node-geocoder": "^4.3.0"
+    "node-geocoder": "^4.3.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   },
   "name": "server",
   "version": "1.0.0",
