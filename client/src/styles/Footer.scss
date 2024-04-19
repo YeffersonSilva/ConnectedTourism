@@ -130,3 +130,13 @@
     }
   }
 }
+.chat-icon {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000; // Asegúrate de que el ícono esté sobre otros elementos
+  background: #f0f0f0; // O cualquier color que prefieras
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); // Opcional, para darle un poco de sombra
+}
