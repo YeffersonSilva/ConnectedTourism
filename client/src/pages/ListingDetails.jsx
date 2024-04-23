@@ -11,6 +11,7 @@ import Navbar from '../components/Navbar';
 import { useSelector } from 'react-redux';
 import Footer from '../components/Footer';
 import WeatherProperty from '../components/WeatherProperty'; // Importa WeatherProperty
+import MapComponent from '../components/MapComponent'; // Importa MapComponent
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -110,15 +111,15 @@ const ListingDetails = () => {
           {listing.type} in {listing.city}, {listing.province}, {listing.country}
         </h2>
         <p>
-          {listing.guestCount} guests - {listing.bedroomCount} bedroom(s) - {listing.bedCount} bed(s) -{' '}
-          {listing.bathroomCount} bathroom(s)
+          {listing.guestCount}  - {listing.bedroomCount} (s) - {listing.bedCount} (s) -{' '}
+          {listing.bathroomCount} ()
         </p>
         <hr />
 
         <div className="profile">
           <img src={`http://localhost:3001/${listing.creator.profileImagePath.replace('public', '')}`} />
           <h3>
-            Hosted by {listing.creator.firstName} {listing.creator.lastName}
+            Creador {listing.creator.firstName} {listing.creator.lastName}
           </h3>
         </div>
         <hr />
@@ -133,7 +134,7 @@ const ListingDetails = () => {
 
         <div className="booking">
           <div>
-            <h2>What this place offers?</h2>
+            <h2>¿Qué ofrece este lugar?</h2>
             <div className="amenities">
               {listing.amenities[0].split(',').map((item, index) => (
                 <div className="facility" key={index}>
@@ -147,12 +148,12 @@ const ListingDetails = () => {
           </div>
 
           <div>
-            <h2>How long do you want to stay?</h2>
+            <h2>Fecha</h2>
             <div className="date-range-calendar">
               <DateRange ranges={dateRange} onChange={handleSelect} />
               {dayCount > 1 ? (
                 <h2>
-                  ${listing.price} x {dayCount} nights
+                  ${listing.price} x {dayCount} 
                 </h2>
               ) : (
                 <h2>
@@ -160,12 +161,12 @@ const ListingDetails = () => {
                 </h2>
               )}
 
-              <h2>Total price: ${listing.price * dayCount}</h2>
-              <p>Start Date: {dateRange[0].startDate.toDateString()}</p>
-              <p>End Date: {dateRange[0].endDate.toDateString()}</p>
+              <h2>Precio total: ${listing.price * dayCount}</h2>
+              <p>Fecha de inicio:: {dateRange[0].startDate.toDateString()}</p>
+              <p>Fecha final: {dateRange[0].endDate.toDateString()}</p>
 
               <button className="button" type="submit" onClick={handleSubmit}>
-                BOOKING
+              RESERVA
               </button>
              
             </div>
@@ -174,8 +175,12 @@ const ListingDetails = () => {
       </div>
 
 
-      {/* Agrega WeatherProperty aquí */}
+      {/* Agrega WeatherProperty aquí <MapComponent address={`${listing.streetAddress}, ${listing.city}, ${listing.province}, ${listing.country}`} /> */}
+      
+
       <WeatherProperty city={`${listing.city},${listing.province},${listing.country}`} />
+
+
     </>
   );
 };
