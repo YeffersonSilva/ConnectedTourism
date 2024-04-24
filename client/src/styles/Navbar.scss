@@ -19,16 +19,28 @@
 
   &_search {
     border: 1px solid $grey;
-    border-radius: 30px;
+    border-radius: 50px;
     height: 50px;
     padding: 0px 20px;
     display: flex;
-    gap: 40px;
+    gap: 20px;
     align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-right: 20px;
 
     input {
       border: none;
       outline: none;
+      flex: 1;
+      font-size: 16px;
+      background-color: transparent;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
     }
 
     &:hover {
@@ -114,6 +126,20 @@
       }
     }
   }
+}
+
+.navbar_right_accountmenu {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.6);
+  right: 10px;
+  top: calc(100% + 10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  z-index: 9999;
 }
 // En Navbar.scss
 .navbar {
