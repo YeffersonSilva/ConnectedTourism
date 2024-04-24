@@ -7,11 +7,32 @@
   align-items: center;
   gap: 50px;
   padding: 10px 70px;
-
+  position: relative; /* Asegura que el footer pueda contener el elemento de la Tierra */
+//background: url('../../public/assets/espaco.jpg') center/cover; /* Ajusta la ruta a tu imagen de fondo y su estilo */
   @include lg {
     padding: 10px 30px;
   }
-
+  .earth {
+    background: url(../../public/assets/terra.jpg) repeat-x 0 0;
+    border: 1px solid rgba(26, 18, 101, 0.3);
+    border-radius: 225px;
+    box-shadow: -8px 0 25px rgba(256, 256, 256, 0.3),
+                -1px -2px 14px rgba(256, 256, 256, 0.5) inset;
+    height: 450px;
+    left: 50%;
+    margin: -225px 0 0 -225px;
+    position: absolute;
+    top: 50%;
+    width: 450px;
+    animation: loop 80s linear infinite;
+    transform: scale(0.4); /* Reducimos el tamaño en un 40% */
+  }
+  
+  
+  @keyframes loop {
+    0% { background-position: 0 0; }
+    100% { background-position: -900px 0; }
+  }
   &_left {
     max-width: 400px;
 
