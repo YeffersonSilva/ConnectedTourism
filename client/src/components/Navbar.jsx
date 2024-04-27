@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className={`navbar ${theme}`}>
       <a href="/">
-        <img src="/assets/logo01.png" alt="logo" />
+        <img src="/icono.png" alt="logo" />
       </a>
 
       <div className="navbar_search">

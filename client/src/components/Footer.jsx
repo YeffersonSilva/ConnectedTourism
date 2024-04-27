@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <div className={`footer ${theme}`}>
       <div className="footer_left">
-        <a href="/"><img src="/assets/logo01.png" alt="logo" /></a>
+        <a href="/"><img src="icono.png" alt="logo" /></a>
       </div>
 
       {/* Efecto del planeta Tierra */}
