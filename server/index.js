@@ -25,8 +25,8 @@ app.use("/users", userRoutes);
 app.use("/events", eventRoutes);
 
 const setupSwagger = require("./routes/swagger.js");
-setupSwagger(app);  /* MONGOOSE SETUP */
-const PORT = 3001;
+setupSwagger(app);
+
 // MongoDB setup
 mongoose.connect(process.env.MONGO_URL, { dbName: "Dream_Nest" })
     .then(() => {

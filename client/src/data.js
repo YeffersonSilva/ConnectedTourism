@@ -124,30 +124,7 @@ export const categories = [
     description: "Participa en eventos educativos y talleres.",
   },
   
-  {
-    img: "assets/cultural_event.jpg",
-    label: "Evento Cultural",
-    icon: <FaLandmark />,
-    description: "Explora eventos culturales y tradiciones locales.",
-  },
-  {
-    img: "assets/art_exhibition.jpg",
-    label: "Exposiciones de Arte",
-    icon: <FaPaintBrush />,
-    description: "Visita galerías de arte y exposiciones.",
-  },
-  {
-    img: "assets/gastronomic_event.jpg",
-    label: "Evento Gastronómico",
-    icon: <GiChefToque />,
-    description: "Descubre la gastronomía local a través de eventos y ferias.",
-  },
-  {
-    img: "assets/nature_event.jpg",
-    label: "Eventos de Naturaleza",
-    icon: <MdLocalFlorist />,
-    description: "Conecta con la naturaleza en parques y reservas.",
-  },
+
   {
     img: "assets/bridge_tour.jpg",
     label: "Tours Históricos",
