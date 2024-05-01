@@ -48,7 +48,7 @@ const Navbar = () => {
         </IconButton>
       </footer>
         <a href="/create-listing" className="host">
-          Conviértete en un Hos
+          Conviértete en Host
         </a>
 
         <button

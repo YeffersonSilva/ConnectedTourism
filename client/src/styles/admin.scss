@@ -1,0 +1,95 @@
+.admin-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+
+    input {
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+
+      &:focus {
+        outline: none;
+        border-color: #0056b3;
+        box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.25);
+      }
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    width: 100%;
+    max-width: 500px;
+
+    li {
+      background-color: #f8f9fa;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; // Ensure vertical alignment
+
+      .user-details {
+        flex-grow: 1; // Allow user details to fill the available space
+        padding-right: 10px; // Prevent text from touching the buttons
+      }
+
+      button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-left: 10px; // Space between buttons
+
+        &:first-child {
+          background-color: #007bff; // Edit button - Blue
+          color: rgb(255, 255, 255);
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+
+        &:last-child {
+          background-color: #dc3545; // Delete button - Red
+          color: white;
+
+          &:hover {
+            background-color: #c82333;
+          }
+        }
+      }
+    }
+  }
+}
