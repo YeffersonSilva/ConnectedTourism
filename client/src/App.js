@@ -12,6 +12,9 @@ import ReservationList from "./pages/ReservationList";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
 import Mapadire from "./pages/Mapadire"; // Asume que Mapadire está en la carpeta 'pages'
+import AdminPage from "./pages/AdminPage";
+import AdminPublicationsPage from "./pages/AdminPublicationsPage";
+
 
 function App() {
   return (
@@ -29,7 +32,10 @@ function App() {
           <Route path="/:userId/wishList" element={<WishList />} />
           <Route path="/:userId/properties" element={<PropertyList />} />
           <Route path="/:userId/reservations" element={<ReservationList />} />
-          <Route path="/mapadire" element={<Mapadire />} /> {/* Nueva ruta agregada aquí */}
+          <Route path="/mapadire" element={<Mapadire />}/>
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/publications" element={<AdminPublicationsPage />}
+          /> {/* Nueva ruta agregada aquí */}
 
         </Routes>
       </BrowserRouter>

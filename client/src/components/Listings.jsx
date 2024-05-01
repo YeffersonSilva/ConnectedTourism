@@ -73,7 +73,6 @@ const Listings = () => {
               creator={creator}
               listingPhotoPaths={listingPhotoPaths}
               city={city}
-              province={province}
               country={country}
               category={category}
               type={type}
