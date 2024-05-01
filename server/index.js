@@ -16,6 +16,8 @@ const listingRoutes = require("./routes/listing.js");
 const bookingRoutes = require("./routes/booking.js");
 const userRoutes = require("./routes/user.js");
 const eventRoutes = require("./routes/eventRoutes.js");
+const adminRoutes = require("./routes/admin.js");
+const adminPublicaciones = require("./routes/adminPublicaciones.js");
 
 // Configuración de rutas
 app.use("/auth", authRoutes);
@@ -23,6 +25,8 @@ app.use("/properties", listingRoutes);
 app.use("/bookings", bookingRoutes);
 app.use("/users", userRoutes);
 app.use("/events", eventRoutes);
+app.use("/admin", adminRoutes);
+app.use("/adminPublicaciones", adminPublicaciones);
 
 const setupSwagger = require("./routes/swagger.js");
 setupSwagger(app);
