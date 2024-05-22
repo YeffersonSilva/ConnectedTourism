@@ -3,7 +3,6 @@ const router = express.Router();
 const Listing = require('../models/Listing'); // Asegúrate de que la ruta al modelo Listing es correcta
 
 // Ruta para obtener todas las publicaciones
-// Ruta para obtener todas las publicaciones
 router.get('/', async (req, res) => {
     try {
         const listings = await Listing.find(); // Asegúrate de que esto no tenga filtros innecesarios
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: 'Error fetching listings', error: err.message });
     }
 });
-
 
 // Ruta para obtener una publicación específica por ID
 router.get('/:id', async (req, res) => {
