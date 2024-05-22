@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/stylesMapaTiempo.scss';
 import { useTheme } from '../contexts/ThemeContext';
+import { motion } from 'framer-motion';
 
 const WeatherApp = () => {
   const [search, setSearch] = useState(''); // Se usa para la entrada manual del usuario
@@ -48,7 +49,7 @@ const WeatherApp = () => {
         </div>
       </div>
       <div id="mapbox">
-        <iframe
+        <motion.iframe
           className="iframe-border"
           width="350"
           height="250"
@@ -57,7 +58,10 @@ const WeatherApp = () => {
           marginHeight="0"
           marginWidth="0"
           src={mapUrl}
-        ></iframe>
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.4 }}
+        ></motion.iframe>
       </div>
     </div>
   );
