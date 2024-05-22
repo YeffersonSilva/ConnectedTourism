@@ -11,10 +11,12 @@ import PropertyList from "./pages/PropertyList";
 import ReservationList from "./pages/ReservationList";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
-import Mapadire from "./pages/Mapadire"; // Asume que Mapadire está en la carpeta 'pages'
+import Mapadire from "./pages/Mapadire";
 import AdminPage from "./pages/AdminPage";
 import AdminPublicationsPage from "./pages/AdminPublicationsPage";
-
+import AdminListingsPage from './components/AdminListingsPage'; // Importa el nuevo componente
+import Categories from './components/Categories';
+import EditListing from './components/EditListingAdmin';
 
 function App() {
   return (
@@ -32,11 +34,12 @@ function App() {
           <Route path="/:userId/wishList" element={<WishList />} />
           <Route path="/:userId/properties" element={<PropertyList />} />
           <Route path="/:userId/reservations" element={<ReservationList />} />
-          <Route path="/mapadire" element={<Mapadire />}/>
+          <Route path="/mapadire" element={<Mapadire />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/admin/publications" element={<AdminPublicationsPage />}
-          /> {/* Nueva ruta agregada aquí */}
-
+          <Route path="/admin/publications" element={<AdminPublicationsPage />} />
+          <Route path="/admin/listings" element={<AdminListingsPage />} /> {/* Nueva ruta agregada aquí */}
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/edit/:id" element={<EditListing />} />
         </Routes>
       </BrowserRouter>
     </div>
