@@ -37,7 +37,7 @@ function App() {
           <Route path="/mapadire" element={<Mapadire />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/publications" element={<AdminPublicationsPage />} />
-          <Route path="/admin/listings" element={<AdminListingsPage />} /> {/* Nueva ruta agregada aquí */}
+          <Route path="/admin/listings" element={<AdminListingsPage />} /> 
           <Route path="/categories" element={<Categories />} />
           <Route path="/edit/:id" element={<EditListing />} />
         </Routes>

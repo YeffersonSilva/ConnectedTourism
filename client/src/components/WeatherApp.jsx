@@ -20,8 +20,8 @@ const WeatherApp = () => {
           const location = `${latitude},${longitude}`;
           updateMap(location); // Actualiza el mapa directamente sin mostrar la ubicación en la caja de texto
         },
-        () => {
-          console.error('Error al acceder a la geolocalización del navegador.');
+        (error) => {
+          console.error('Error al acceder a la geolocalización del navegador:', error);
           // Opcional: establecer una ubicación por defecto o manejar el error de otra manera
         }
       );

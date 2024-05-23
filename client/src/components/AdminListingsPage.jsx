@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 import "../styles/admin.scss";
@@ -14,7 +13,6 @@ const AdminListingsPage = () => {
     price: "",
     category: ""
   });
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchListings();
@@ -23,9 +21,10 @@ const AdminListingsPage = () => {
   const fetchListings = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:3001/properties");
+      const response = await fetch("http://localhost:3001/adminPublicaciones");
       if (response.ok) {
         const data = await response.json();
+        console.log("Fetched listings:", data);
         setListings(data);
         setLoading(false);
       } else {
@@ -44,9 +43,11 @@ const AdminListingsPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = selectedListing
-      ? `http://localhost:3001/properties/${selectedListing._id}`
-      : "http://localhost:3001/properties";
+      ? `http://localhost:3001/adminPublicaciones/${selectedListing._id}`
+      : "http://localhost:3001/adminPublicaciones";
     const method = selectedListing ? "PATCH" : "POST";
+
+    console.log(`Submitting form with method: ${method}, url: ${url}, data:`, formData);
 
     try {
       const response = await fetch(url, {
@@ -57,6 +58,7 @@ const AdminListingsPage = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
+        console.log("Form submission successful");
         fetchListings();
         setFormData({ title: "", description: "", price: "", category: "" });
         setSelectedListing(null);
@@ -69,13 +71,22 @@ const AdminListingsPage = () => {
   };
 
   const handleDelete = async (listingId) => {
+    const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar esta publicación?");
+    if (!confirmDelete) return;
+
+    console.log(`Deleting listing with id: ${listingId}`);
+
     try {
-      const response = await fetch(`http://localhost:3001/properties/${listingId}`, {
+      const response = await fetch(`http://localhost:3001/adminPublicaciones/${listingId}`, {
         method: "DELETE",
       });
+
       if (response.ok) {
-        fetchListings();
+        console.log(`Listing with id ${listingId} deleted`);
+        setListings(prevListings => prevListings.filter(listing => listing._id !== listingId));
       } else {
+        const errorData = await response.json();
+        console.error('Delete response not ok:', errorData);
         throw new Error('Failed to delete the listing.');
       }
     } catch (err) {
