@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const router = express.Router();
 const listingsController = require('../controllers/listingsController'); // Asegúrate de que la ruta al controlador es correcta
 
@@ -17,4 +17,4 @@ router.patch('/:id', listingsController.updateListing);
 // Ruta para eliminar una publicación
 router.delete('/:id', listingsController.deleteListing);
 
-module.exports = router;
+module.exports = router;*/
