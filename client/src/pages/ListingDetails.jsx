@@ -50,7 +50,7 @@ const ListingDetails = () => {
 
   const start = new Date(dateRange[0].startDate);
   const end = new Date(dateRange[0].endDate);
-  const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
+  const dayCount = Math.round((end - start) / (1000 * 60 * 60 * 24)); // Calculate the difference in day unit
   const totalPrice = listing ? listing.price * dayCount : 0;
 
   /* PAYMENT STATES */
@@ -158,9 +158,9 @@ const ListingDetails = () => {
             </div>
           </div>
 
-          <div>
-            <h2>Fecha</h2>
-            <div className="date-range-calendar">
+          <div className="booking-container">
+            <div className="booking-calendar">
+              <h2>Fecha</h2>
               <DateRange ranges={dateRange} onChange={handleSelect} />
               {dayCount > 1 ? (
                 <h2>
@@ -171,50 +171,48 @@ const ListingDetails = () => {
                   ${listing.price} x {dayCount} night
                 </h2>
               )}
-
               <h2>Precio total: ${totalPrice}</h2>
-              <p>Fecha de inicio:: {dateRange[0].startDate.toDateString()}</p>
+              <p>Fecha de inicio: {dateRange[0].startDate.toDateString()}</p>
               <p>Fecha final: {dateRange[0].endDate.toDateString()}</p>
-
-              {totalPrice > 0 && (
-                <div className="card-details">
-                  <h2>Detalles de la Tarjeta</h2>
-                  <input
-                    type="text"
-                    placeholder="Nombre Completo"
-                    value={fullName}
-                    onChange={handleFullNameChange}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Número de Tarjeta"
-                    value={cardNumber}
-                    onChange={handleCardNumberChange}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Fecha de Expiración (MM/AA)"
-                    value={expiryDate}
-                    onChange={handleExpiryDateChange}
-                  />
-                  <input
-                    type="text"
-                    placeholder="CVV"
-                    value={cvv}
-                    onChange={handleCvvChange}
-                  />
-                </div>
-              )}
-
-              <button className="button" type="submit" onClick={handleSubmit}>
-                RESERVA
-              </button>
             </div>
+
+            {totalPrice > 0 && (
+              <div className="card-details">
+                <h2>Detalles de la Tarjeta</h2>
+                <input
+                  type="text"
+                  placeholder="Nombre Completo"
+                  value={fullName}
+                  onChange={handleFullNameChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Número de Tarjeta"
+                  value={cardNumber}
+                  onChange={handleCardNumberChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Fecha de Expiración (MM/AA)"
+                  value={expiryDate}
+                  onChange={handleExpiryDateChange}
+                />
+                <input
+                  type="text"
+                  placeholder="CVV"
+                  value={cvv}
+                  onChange={handleCvvChange}
+                />
+              </div>
+            )}
           </div>
+
+          <button className="button" type="submit" onClick={handleSubmit}>
+            RESERVA
+          </button>
         </div>
       </div>
 
-      {/* Agrega WeatherProperty aquí <MapComponent address={`${listing.streetAddress}, ${listing.city}, ${listing.province}, ${listing.country}`} /> */}
       <WeatherProperty city={`${listing.city},${listing.province},${listing.country}`} />
     </>
   );
