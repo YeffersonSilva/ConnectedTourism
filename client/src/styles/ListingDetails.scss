@@ -20,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 
     @include sm {
       flex-direction: column;
@@ -28,6 +29,9 @@
     }
 
     h1 {
+      font-size: 32px;
+      color: #333;
+
       @include sm {
         font-size: 26px;
       }
@@ -55,28 +59,54 @@
 
     img {
       max-width: 280px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
 
   hr {
     margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ddd;
   }
 
   .profile {
     display: flex;
     gap: 20px;
     align-items: center;
+    margin: 20px 0;
 
     img {
       width: 60px;
       height: 60px;
+      border-radius: 50%;
       margin: 0;
+    }
+
+    h3 {
+      font-size: 24px;
+      color: #333;
     }
   }
 
   p {
     max-width: 800px;
     margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+  }
+
+  .highlight {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .highlightDesc {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
   }
 
   .booking {
