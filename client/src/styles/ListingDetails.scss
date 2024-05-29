@@ -124,7 +124,6 @@
       }
 
       .button {
-        @include buttonStyle;
         width: 100%;
         margin-top: 30px;
 
@@ -180,18 +179,20 @@
   outline: none;
 }
 
-.card-details button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: #0eca37;
+.button {
+  width: 100%; /* Hacer el botón más largo */
+  padding: 15px; /* Hacer el botón más alto */
+  background-color: #007bff; /* Color azul */
+  color: #fff;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 18px; /* Aumentar el tamaño del texto */
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-align: center;
 }
 
-.card-details button:hover {
+.button:hover {
   background-color: #0056b3;
 }
