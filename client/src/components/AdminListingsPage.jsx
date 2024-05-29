@@ -11,7 +11,8 @@ const AdminListingsPage = () => {
     title: "",
     description: "",
     price: "",
-    category: ""
+    category: "",
+    image: "" // Añadir campo de imagen
   });
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const AdminListingsPage = () => {
       if (response.ok) {
         console.log("Form submission successful");
         fetchListings();
-        setFormData({ title: "", description: "", price: "", category: "" });
+        setFormData({ title: "", description: "", price: "", category: "", image: "" });
         setSelectedListing(null);
       } else {
         throw new Error('Failed to perform the operation.');
@@ -100,7 +101,8 @@ const AdminListingsPage = () => {
       title: listing.title,
       description: listing.description,
       price: listing.price,
-      category: listing.category
+      category: listing.category,
+      image: listing.image || "" // Añadir campo de imagen
     });
   };
 
@@ -142,6 +144,12 @@ const AdminListingsPage = () => {
               placeholder="Category"
               required
             />
+            <input
+              name="image"
+              value={formData.image}
+              onChange={handleFormChange}
+              placeholder="Image URL"
+            />
             <button type="submit">
               {selectedListing ? "Update Listing" : "Add Listing"}
             </button>
@@ -150,7 +158,8 @@ const AdminListingsPage = () => {
             {listings.map((listing) => (
               <li key={listing._id}>
                 <div className="listing-details">
-                  {listing.title} - ${listing.price}
+                  {listing.image && <img src={listing.image} alt={listing.title} />}
+                  <div>{listing.title} - ${listing.price}</div>
                 </div>
                 <button onClick={() => handleEdit(listing)}>Edit</button>
                 <button onClick={() => handleDelete(listing._id)}>Delete</button>
