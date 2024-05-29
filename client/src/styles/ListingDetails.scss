@@ -136,3 +136,47 @@
     }
   }
 }
+
+
+.card-details {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.card-details h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.card-details input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.card-details input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.card-details button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.card-details button:hover {
+  background-color: #0056b3;
+}

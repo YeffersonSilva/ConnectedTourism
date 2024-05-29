@@ -15,7 +15,6 @@ import MapComponent from '../components/MapComponent'; // Importa MapComponent
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
-
   const { listingId } = useParams();
   const [listing, setListing] = useState(null);
 
@@ -24,7 +23,6 @@ const ListingDetails = () => {
       const response = await fetch(`http://localhost:3001/properties/${listingId}`, {
         method: 'GET',
       });
-
       const data = await response.json();
       setListing(data);
       setLoading(false);
@@ -37,8 +35,6 @@ const ListingDetails = () => {
     getListingDetails();
   }, []);
 
-  console.log(listing);
-
   /* BOOKING CALENDAR */
   const [dateRange, setDateRange] = useState([
     {
@@ -49,43 +45,58 @@ const ListingDetails = () => {
   ]);
 
   const handleSelect = (ranges) => {
-    // Update the selected date range when user makes a selection
     setDateRange([ranges.selection]);
   };
 
   const start = new Date(dateRange[0].startDate);
   const end = new Date(dateRange[0].endDate);
   const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
+  const totalPrice = listing ? listing.price * dayCount : 0;
+
+  /* PAYMENT STATES */
+  const [fullName, setFullName] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
+  const [cvv, setCvv] = useState('');
+
+  const handleFullNameChange = (e) => setFullName(e.target.value);
+  const handleCardNumberChange = (e) => setCardNumber(e.target.value);
+  const handleExpiryDateChange = (e) => setExpiryDate(e.target.value);
+  const handleCvvChange = (e) => setCvv(e.target.value);
 
   /* SUBMIT BOOKING */
   const customerId = useSelector((state) => state?.user?._id);
-
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    try {
-      const bookingForm = {
-        customerId,
-        listingId,
-        hostId: listing.creator._id,
-        startDate: dateRange[0].startDate.toDateString(),
-        endDate: dateRange[0].endDate.toDateString(),
-        totalPrice: listing.price * dayCount,
-      };
+    if (totalPrice === 0 || (fullName && cardNumber.length === 16 && expiryDate && cvv)) {
+      try {
+        const bookingForm = {
+          customerId,
+          listingId,
+          hostId: listing.creator._id,
+          startDate: dateRange[0].startDate.toDateString(),
+          endDate: dateRange[0].endDate.toDateString(),
+          totalPrice: totalPrice,
+          paymentDetails: totalPrice > 0 ? { fullName, cardNumber, expiryDate, cvv } : null,
+        };
 
-      const response = await fetch('http://localhost:3001/bookings/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(bookingForm),
-      });
+        const response = await fetch('http://localhost:3001/bookings/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(bookingForm),
+        });
 
-      if (response.ok) {
-        navigate(`/${customerId}/trips`);
+        if (response.ok) {
+          navigate(`/${customerId}/trips`);
+        }
+      } catch (err) {
+        console.log('Submit Booking Failed.', err.message);
       }
-    } catch (err) {
-      console.log('Submit Booking Failed.', err.message);
+    } else {
+      alert('Please fill in all payment details with a valid 16-digit card number');
     }
   };
 
@@ -111,7 +122,7 @@ const ListingDetails = () => {
           {listing.type} in {listing.city}, {listing.province}, {listing.country}
         </h2>
         <p>
-          {listing.guestCount}  - {listing.bedroomCount} (s) - {listing.bedCount} (s) -{' '}
+          {listing.guestCount} - {listing.bedroomCount} (s) - {listing.bedCount} (s) -{' '}
           {listing.bathroomCount} ()
         </p>
         <hr />
@@ -153,7 +164,7 @@ const ListingDetails = () => {
               <DateRange ranges={dateRange} onChange={handleSelect} />
               {dayCount > 1 ? (
                 <h2>
-                  ${listing.price} x {dayCount} 
+                  ${listing.price} x {dayCount}
                 </h2>
               ) : (
                 <h2>
@@ -161,26 +172,50 @@ const ListingDetails = () => {
                 </h2>
               )}
 
-              <h2>Precio total: ${listing.price * dayCount}</h2>
+              <h2>Precio total: ${totalPrice}</h2>
               <p>Fecha de inicio:: {dateRange[0].startDate.toDateString()}</p>
               <p>Fecha final: {dateRange[0].endDate.toDateString()}</p>
 
+              {totalPrice > 0 && (
+                <div className="card-details">
+                  <h2>Detalles de la Tarjeta</h2>
+                  <input
+                    type="text"
+                    placeholder="Nombre Completo"
+                    value={fullName}
+                    onChange={handleFullNameChange}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Número de Tarjeta"
+                    value={cardNumber}
+                    onChange={handleCardNumberChange}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Fecha de Expiración (MM/AA)"
+                    value={expiryDate}
+                    onChange={handleExpiryDateChange}
+                  />
+                  <input
+                    type="text"
+                    placeholder="CVV"
+                    value={cvv}
+                    onChange={handleCvvChange}
+                  />
+                </div>
+              )}
+
               <button className="button" type="submit" onClick={handleSubmit}>
-              RESERVA
+                RESERVA
               </button>
-             
             </div>
           </div>
         </div>
       </div>
 
-
       {/* Agrega WeatherProperty aquí <MapComponent address={`${listing.streetAddress}, ${listing.city}, ${listing.province}, ${listing.country}`} /> */}
-      
-
       <WeatherProperty city={`${listing.city},${listing.province},${listing.country}`} />
-
-
     </>
   );
 };
