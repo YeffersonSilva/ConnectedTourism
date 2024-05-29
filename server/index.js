@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const cors = require("cors");
+const listingsRoutes = require('./routes/listingsRoutes'); // Asegúrate de que la ruta es correcta
 
 // Configuración de la aplicación Express
 const app = express();
@@ -18,6 +19,7 @@ const userRoutes = require("./routes/user.js");
 const eventRoutes = require("./routes/eventRoutes.js");
 const adminRoutes = require("./routes/admin.js");
 const adminPublicaciones = require("./routes/adminPublicaciones.js");
+const usersRoutes = require('./routes/usersRoutes'); // Asegúrate de que la ruta es correcta
 
 // Configuración de rutas
 app.use("/auth", authRoutes);
@@ -27,6 +29,8 @@ app.use("/users", userRoutes);
 app.use("/events", eventRoutes);
 app.use("/admin", adminRoutes);
 app.use("/adminPublicaciones", adminPublicaciones);
+app.use('/listings', listingsRoutes);
+app.use('/client', usersRoutes);
 
 const setupSwagger = require("./routes/swagger.js");
 setupSwagger(app);
