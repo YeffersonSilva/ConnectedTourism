@@ -81,12 +81,8 @@
 
   .booking {
     display: flex;
-    justify-content: space-between;
-
-    @include lg {
-      flex-direction: column;
-      gap: 50px;
-    }
+    flex-direction: column; /* Ajustado para diseño en columna */
+    gap: 50px;
 
     .amenities {
       display: grid;
@@ -117,8 +113,11 @@
       }
     }
 
-    .date-range-calendar {
+    .date-range-calendar, .card-details {
       margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       h2 {
         margin-bottom: 10px;
@@ -137,13 +136,28 @@
   }
 }
 
+.booking-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.booking-calendar, .card-details {
+  flex: 1;
+  margin: 0 10px;
+  max-width: 500px; /* Opcional, para limitar el tamaño máximo */
+}
+
+.booking-calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .card-details {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-details h2 {
@@ -170,11 +184,12 @@
   width: 100%;
   padding: 10px;
   background-color: #007bff;
-  color: #fff;
+  color: #0eca37;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .card-details button:hover {
