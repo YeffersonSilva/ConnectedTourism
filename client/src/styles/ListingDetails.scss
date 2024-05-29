@@ -179,20 +179,24 @@
   outline: none;
 }
 
+
 .button {
-  width: 100%; /* Hacer el botón más largo */
-  padding: 15px; /* Hacer el botón más alto */
+  width: auto; /* Ajuste de ancho automático */
+  padding: 10px 70px; /* Tamaño reducido */
   background-color: #007bff; /* Color azul */
   color: #fff;
   border: none;
   border-radius: 5px;
-  font-size: 18px; /* Aumentar el tamaño del texto */
+  font-size: 16px; /* Tamaño del texto */
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-align: center;
+  display: block; /* Asegura que el botón sea un bloque para centrado */
+  margin: 0 auto; /* Centrado horizontal */
 }
 
 .button:hover {
   background-color: #0056b3;
 }
+
