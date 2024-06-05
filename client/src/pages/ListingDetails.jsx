@@ -168,7 +168,7 @@ const ListingDetails = () => {
                 </h2>
               ) : (
                 <h2>
-                  ${listing.price} x {dayCount} night
+                  ${listing.price} x {dayCount} 
                 </h2>
               )}
               <h2>Precio total: ${totalPrice}</h2>
