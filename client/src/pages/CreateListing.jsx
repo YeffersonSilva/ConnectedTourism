@@ -166,7 +166,7 @@ const CreateListing = () => {
               ))}
             </div>
 
-            <h3>What type of place will guests have?</h3>
+            <h3>De que se trata?</h3>
             <div className="type-list">
               {types?.map((item, index) => (
                 <div
@@ -183,7 +183,7 @@ const CreateListing = () => {
               ))}
             </div>
 
-            <h3>Donde esta Hubicada tu sitio</h3>
+            <h3>Donde esta ubicado su sitio</h3>
             <div className="full">
               <div className="location">
                 <p>Calle</p>

@@ -101,6 +101,11 @@ const AdminListingsPage = () => {
     });
   };
 
+  const handleVideoApproval = (id, approved) => {
+    console.log(`Video ${id} ${approved ? 'approved' : 'disapproved'}`);
+    // Aquí puedes agregar lógica para manejar la aprobación/desaprobación de videos
+  };
+
   return (
     <div className="admin-page-container">
       <Navbar />
@@ -109,7 +114,7 @@ const AdminListingsPage = () => {
       ) : (
         <div>
           <h1>Admin Listing Management</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="admin-form">
             <input
               name="title"
               value={formData.title}
@@ -143,14 +148,23 @@ const AdminListingsPage = () => {
               {selectedListing ? "Update Listing" : "Add Listing"}
             </button>
           </form>
-          <ul>
+          <ul className="listings">
             {listings.map((listing) => (
-              <li key={listing._id}>
+              <li key={listing._id} className="listing-item">
                 <div className="listing-details">
-                  {listing.title} - ${listing.price}
+                  <div className="listing-text">
+                    <strong>{listing.title}</strong> - ${listing.price}
+                  </div>
+                  <div className="buttons">
+                    <button onClick={() => handleEdit(listing)}>Edit</button>
+                    <button onClick={() => handleDelete(listing._id)}>Delete</button>
+                  </div>
                 </div>
-                <button onClick={() => handleEdit(listing)}>Edit</button>
-                <button onClick={() => handleDelete(listing._id)}>Delete</button>
+                <div className="video-approval">
+                  <span>{listing.videoTitle || ''}</span>
+                  <button onClick={() => handleVideoApproval(listing._id, true)}>👍</button>
+                  <button onClick={() => handleVideoApproval(listing._id, false)}>👎</button>
+                </div>
               </li>
             ))}
           </ul>
