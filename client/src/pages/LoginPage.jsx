@@ -8,8 +8,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // Actualiza aquí la URL de Unsplash para usar 'Santana do Livramento' como palabra clave
-  const backgroundImageUrl = "https://source.unsplash.com/1600x900/?España";
-
+  const backgroundImageUrl = "/assets/Rivera01.jpg";
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
